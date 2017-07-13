@@ -3,13 +3,13 @@
 namespace Dotdigitalgroup\Email\Block;
 
 use DOMDocument;
+use Magento\Quote\Model\ResourceModel\Quote;
 use XSLTProcessor;
 
 const FEEFO_URL = 'http://www.feefo.com/feefo/xmlfeed.jsp?';
 
 class Feefo extends \Magento\Framework\View\Element\Template
 {
-
     /**
      * @var \Dotdigitalgroup\Email\Helper\Data
      */
@@ -29,7 +29,16 @@ class Feefo extends \Magento\Framework\View\Element\Template
      * @var XSLTProcessor
      */
     public $processor;
+<<<<<<< HEAD
     
+=======
+
+    /**
+     * @var Quote
+     */
+    private $quoteResource;
+
+>>>>>>> 1e231c4088b43a17d3d4bfcad7b8df753b50fa8f
     /**
      * @var \Dotdigitalgroup\Email\Model\ResourceModel\Review
      */
@@ -54,6 +63,7 @@ class Feefo extends \Magento\Framework\View\Element\Template
      * @param \Magento\Framework\Pricing\Helper\Data $priceHelper
      * @param \Magento\Framework\View\Element\Template\Context $context
      * @param \Dotdigitalgroup\Email\Model\ResourceModel\Review $review
+     * @param Quote $quoteResource
      * @param \Magento\Quote\Model\QuoteFactory $quoteFactory
      * @param array $data
      */
@@ -64,6 +74,7 @@ class Feefo extends \Magento\Framework\View\Element\Template
         \Magento\Framework\Pricing\Helper\Data $priceHelper,
         \Magento\Framework\View\Element\Template\Context $context,
         \Dotdigitalgroup\Email\Model\ResourceModel\Review $review,
+        \Magento\Quote\Model\ResourceModel\Quote $quoteResource,
         \Magento\Quote\Model\QuoteFactory $quoteFactory,
         array $data = []
     ) {
@@ -74,6 +85,7 @@ class Feefo extends \Magento\Framework\View\Element\Template
         $this->review = $review;
         $this->assetRepository = $context->getAssetRepository();
         $this->quoteFactory = $quoteFactory;
+        $this->quoteResource = $quoteResource;
         parent::__construct($context, $data);
     }
 
@@ -122,8 +134,7 @@ class Feefo extends \Magento\Framework\View\Element\Template
         $quoteId = (int) $params['quote_id'];
 
         $quoteModel = $this->quoteFactory->create();
-        $quoteModel->getResource()
-            ->load($quoteModel, $quoteId);
+        $this->quoteResource->load($quoteModel, $quoteId);
 
         if (! $quoteModel->getId()) {
             return $products;
