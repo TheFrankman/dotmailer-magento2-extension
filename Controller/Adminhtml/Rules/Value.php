@@ -13,6 +13,7 @@ class Value extends \Magento\Backend\App\AbstractAction
      * @var \Dotdigitalgroup\Email\Model\Adminhtml\Source\Rules\Value
      */
     private $ruleValue;
+
     /**
      * @var \Magento\Framework\Json\Helper\Data
      */
@@ -58,6 +59,8 @@ class Value extends \Magento\Backend\App\AbstractAction
 
     /**
      * Execute method.
+     * 
+     * @return null
      */
     public function execute()
     {
@@ -88,9 +91,9 @@ class Value extends \Magento\Backend\App\AbstractAction
     }
 
     /**
-     * @param $title
-     * @param $name
-     * @param $options
+     * @param mixed $title
+     * @param mixed $name
+     * @param mixed $options
      *
      * @return string
      */

@@ -22,7 +22,7 @@
                 <?php  echo $block->escapeHtml(__('Dynamic content passcode')) ?>:
             </strong>
         </th>
-        <td><?php echo $block->escapeHtml($block->getDynamicContentPasscode()) ?></td>
+        <td><?= $block->escapeHtml($block->getDynamicContentPasscode()) ?></td>
     </tr>
     <tr>
         <th>
@@ -30,7 +30,7 @@
                 <?php  echo $block->escapeHtml(__('Abandoned Cart limit time')) ?>:
             </strong>
         </th>
-        <td><?php echo $block->escapeHtml($block->getAbandonedCartLimit()) ?></td>
+        <td><?= $block->escapeHtml($block->getAbandonedCartLimit()) ?></td>
     </tr>
 </table>
     

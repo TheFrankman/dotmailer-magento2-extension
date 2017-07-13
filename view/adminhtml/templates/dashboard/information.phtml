@@ -6,7 +6,7 @@
                 <?php  echo $block->escapeHtml(__('PHP Version')) ?>:
             </strong>
         </th>
-        <td><div class="message-link"><?php echo $block->escapeHtml($block->getPhpVersion()) ?></div></td>
+        <td><div class="message-link"><?= $block->escapeHtml($block->getPhpVersion()) ?></div></td>
     </tr>
     <tr>
         <th>
@@ -30,7 +30,7 @@
                 <?php  echo $block->escapeHtml(__('Magento Version ')) ?>:
             </strong>
         </th>
-        <td><?php echo $block->escapeHtml($block->getMagentoVersion()) ?></td>
+        <td><?= $block->escapeHtml($block->getMagentoVersion()) ?></td>
     </tr>
     <tr>
         <th>
@@ -38,7 +38,7 @@
                 <?php  echo $block->escapeHtml(__('Connector Version ')) ?>:
             </strong>
         </th>
-        <td><?php echo $block->escapeHtml($block->getConnectorVersion()) ?></td>
+        <td><?= $block->escapeHtml($block->getConnectorVersion()) ?></td>
     </tr>
 
 </table>

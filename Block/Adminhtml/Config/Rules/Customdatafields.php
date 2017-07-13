@@ -6,17 +6,17 @@ class Customdatafields extends \Magento\Config\Block\System\Config\Form\Field\Fi
 {
 
     /**
-     * @var
+     * @var object
      */
     protected $getAttributeRenderer;
 
     /**
-     * @var
+     * @var object
      */
     protected $getConditionsRenderer;
 
     /**
-     * @var
+     * @var object
      */
     private $getValueRenderer;
 
@@ -58,6 +58,9 @@ class Customdatafields extends \Magento\Config\Block\System\Config\Form\Field\Fi
         parent::__construct($context, $data);
     }
 
+    /**
+     * @return void
+     */
     protected function _prepareToRender()
     {
         $this->getConditionsRenderer = null;
@@ -129,6 +132,8 @@ class Customdatafields extends \Magento\Config\Block\System\Config\Form\Field\Fi
 
     /**
      * @param \Magento\Framework\DataObject $row
+     * 
+     * @return null
      */
     protected function _prepareArrayRow(\Magento\Framework\DataObject $row)
     {

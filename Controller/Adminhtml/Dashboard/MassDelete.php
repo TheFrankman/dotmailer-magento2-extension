@@ -11,10 +11,12 @@ class MassDelete extends \Magento\Backend\App\Action
      * @var \Magento\Cron\Model\ScheduleFactory
      */
     private $schedule;
+
     /**
      * @var \Magento\Framework\Escaper
      */
     private $escaper;
+    
     /**
      * @var \Magento\Cron\Model\ResourceModel\Schedule
      */

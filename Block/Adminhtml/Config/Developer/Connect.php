@@ -54,7 +54,7 @@ class Connect extends \Magento\Config\Block\System\Config\Form\Field
     }
 
     /**
-     * @param $buttonLabel
+     * @param string $buttonLabel
      *
      * @return $this
      */

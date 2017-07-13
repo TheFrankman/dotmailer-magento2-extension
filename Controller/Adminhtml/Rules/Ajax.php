@@ -15,10 +15,12 @@ class Ajax extends \Magento\Backend\App\AbstractAction
      * @var \Dotdigitalgroup\Email\Model\Adminhtml\Source\Rules\Type
      */
     private $ruleType;
+
     /**
      * @var \Dotdigitalgroup\Email\Model\Adminhtml\Source\Rules\Condition
      */
     private $ruleCondition;
+
     /**
      * @var \Dotdigitalgroup\Email\Model\Adminhtml\Source\Rules\Value
      */
@@ -75,6 +77,8 @@ class Ajax extends \Magento\Backend\App\AbstractAction
 
     /**
      * Execute method.
+     * 
+     * @return void
      */
     public function execute()
     {
@@ -113,9 +117,9 @@ class Ajax extends \Magento\Backend\App\AbstractAction
     /**
      * Get select options.
      *
-     * @param $title
-     * @param $name
-     * @param $options
+     * @param mixed $title
+     * @param mixed $name
+     * @param mixed $options
      *
      * @return string
      */

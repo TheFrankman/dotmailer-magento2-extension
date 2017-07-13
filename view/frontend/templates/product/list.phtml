@@ -11,41 +11,41 @@ $products = $block->getLoadedProductCollection();
     ?>
     <style>
         .product-name{
-            color: <?php echo $block->escapeHtml($dynamicStyle['nameColor']);?>;
-            font-size: <?php echo $block->escapeHtml($dynamicStyle['fontSize']);?>;
-        <?php if (in_array('bold', $dynamicStyle['nameStyle'])) : ?>
+            color: <?= $block->escapeHtml($dynamicStyle['nameColor']);?>;
+            font-size: <?= $block->escapeHtml($dynamicStyle['fontSize']);?>;
+            <?php if (in_array('bold', $dynamicStyle['nameStyle'])) : ?>
             font-weight: bold;
-        <?php endif; ?><?php if (in_array('italic', $dynamicStyle['nameStyle'])) : ?>
+            <?php endif; ?><?php if (in_array('italic', $dynamicStyle['nameStyle'])) : ?>
             font-style: italic;
-        <?php endif; ?><?php if (in_array('underline', $dynamicStyle['nameStyle'])) : ?>
+            <?php endif; ?><?php if (in_array('underline', $dynamicStyle['nameStyle'])) : ?>
             text-decoration: underline;
-        <?php endif; ?>
+            <?php endif; ?>
         }
         .product-price{
-            color: <?php echo $block->escapeHtml($dynamicStyle['priceColor']);?>;
-            font-size: <?php echo $block->escapeHtml($dynamicStyle['priceFontSize']);?>;
-        <?php if (in_array('bold', $dynamicStyle['priceStyle'])) : ?>
+            color: <?= $block->escapeHtml($dynamicStyle['priceColor']);?>;
+            font-size: <?= $block->escapeHtml($dynamicStyle['priceFontSize']);?>;
+            <?php if (in_array('bold', $dynamicStyle['priceStyle'])) : ?>
             font-weight: bold;
-        <?php endif; ?><?php if (in_array('italic', $dynamicStyle['priceStyle'])) : ?>
+            <?php endif; ?><?php if (in_array('italic', $dynamicStyle['priceStyle'])) : ?>
             font-style: italic;
-        <?php endif; ?><?php if (in_array('underline', $dynamicStyle['priceStyle'])) : ?>
+            <?php endif; ?><?php if (in_array('underline', $dynamicStyle['priceStyle'])) : ?>
             text-decoration: underline;
-        <?php endif; ?>
+            <?php endif; ?>
         }
         .proudct-url{
-            color: <?php echo $block->escapeHtml($dynamicStyle['urlColor']);?>;
-            font-size: <?php echo $block->escapeHtml($dynamicStyle['urlFontSize']);?>;
-        <?php if (in_array('bold', $dynamicStyle['linkStyle'])) : ?>
+            color: <?= $block->escapeHtml($dynamicStyle['urlColor']);?>;
+            font-size: <?= $block->escapeHtml($dynamicStyle['urlFontSize']);?>;
+            <?php if (in_array('bold', $dynamicStyle['linkStyle'])) : ?>
             font-weight: bold;
-        <?php endif; ?><?php if (in_array('italic', $dynamicStyle['linkStyle'])) : ?>
+            <?php endif; ?><?php if (in_array('italic', $dynamicStyle['linkStyle'])) : ?>
             font-style: italic;
-        <?php endif; ?><?php if (in_array('underline', $dynamicStyle['linkStyle'])) : ?>
+            <?php endif; ?><?php if (in_array('underline', $dynamicStyle['linkStyle'])) : ?>
             text-decoration: underline;
-        <?php endif; ?>
+            <?php endif; ?>
         }
         .product-table{
-            font-family: <?php echo $block->escapeHtml($dynamicStyle['docFont']);?>;
-            background-color: <?php echo $block->escapeHtml($dynamicStyle['docBackgroundColor']);?>;
+            font-family: <?= $block->escapeHtml($dynamicStyle['docFont']);?>;
+            background-color: <?= $block->escapeHtml($dynamicStyle['docBackgroundColor']);?>;
             width: 100% !important;
         }
         .product-table img{
@@ -58,7 +58,7 @@ $products = $block->getLoadedProductCollection();
             padding-bottom: 10px;
         }
         /** Styling from config field **/
-        <?php echo $block->escapeHtml($dynamicStyle['dynamicStyling']);?>
+        <?= $block->escapeHtml($dynamicStyle['dynamicStyling']);?>
         /** Responsive  **/
         @media (max-width: 760px) {
             /* Force table to not be like tables anymore */
@@ -84,25 +84,27 @@ $products = $block->getLoadedProductCollection();
     <?php endif;?>
 
     <td style="vertical-align: text-top; padding-right: 2px;">
-        <a href="<?php echo $block->escapeHtml($_product->getProductUrl()) ?>"
-           title="<?php echo $block->escapeHtml($block->stripTags($block->getImageLabel($_product, 'small_image'), null,
+        <a href="<?= $block->escapeHtml($_product->getProductUrl()) ?>"
+           title="<?= $block->escapeHtml($block->stripTags($block->getImageLabel($_product, 'small_image'), null,
                true)); ?>"
-           class="product-image"><?php echo $block->getImage($_product, 'product_small_image')->toHtml(); ?>
+           class="product-image"><?= $block->getImage($_product, 'product_small_image')->toHtml(); ?>
             </a>
-        <div class="product-name" align="center"><b><?php echo $block->escapeHtml(substr($_product->getName(), 0,
+        <div class="product-name" align="center"><b><?= $block->escapeHtml(substr($_product->getName(), 0,
                     40)); ?></b></div>
         <div class="product-price" align="center">
             <?php $productPriceHtml = $block->getLayout()->getBlock('ddg.product.price.render.default')
                 ->render('final_price', $_product, []) ?>
-            <?php echo /* @noEscape */ $productPriceHtml; ?>
+            <?= /* @noEscape */ $productPriceHtml; ?>
         </div>
         <div align="center">
-            <a class="proudct-url" href="<?php echo $block->escapeHtml($_product->getProductUrl()); ?>">
+            <a class="proudct-url" href="<?= $block->escapeHtml($_product->getProductUrl()); ?>">
                 <?php if ($urlText = $block->getTextForUrl($_product->getStoreId())) {
                     echo $block->escapeHtml($urlText);
-                } else {
+                } 
+                else {
                     echo $block->escapehtml(__('View Now'));
-                } ?>
+                } 
+                ?>
             </a>
         </div>
     </td>

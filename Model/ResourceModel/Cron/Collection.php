@@ -10,7 +10,7 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
     /**
      * Initialize resource collection
      *
-     * @return void
+     * @return null
      */
     public function _construct()
     {

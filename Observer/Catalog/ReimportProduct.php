@@ -11,13 +11,16 @@ class ReimportProduct implements \Magento\Framework\Event\ObserverInterface
      * @var \Dotdigitalgroup\Email\Model\ResourceModel\Catalog
      */
     private $catalogResource;
+
     /**
      * @var \Dotdigitalgroup\Email\Helper\Data
      */
+
     private $helper;
     /**
      * @var \Dotdigitalgroup\Email\Model\CatalogFactory
      */
+
     private $catalogFactory;
     /**
      * @var \Dotdigitalgroup\Email\Model\ResourceModel\Catalog\CollectionFactory

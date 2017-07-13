@@ -11,7 +11,7 @@ class Resetsubscribers extends \Magento\Config\Block\System\Config\Form\Field
     public $buttonLabel = 'Run Now';
 
     /**
-     * @param $buttonLabel
+     * @param string $buttonLabel
      *
      * @return $this
      */
